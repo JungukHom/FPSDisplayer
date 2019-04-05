@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 1682294298}
   - component: {fileID: 1682294297}
   m_Layer: 0
-  m_Name: FpsDisplayerSanple
+  m_Name: FpsDisplayerSample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,7 +7,9 @@
     {
         private void Start()
         {
-            FpsDisplayer fpsDisplayer = FpsDisplayer.Create(75, DisplayPosition.UpperRight);
+            //FpsDisplayer sample_01 = FpsDisplayer.Create();
+            //FpsDisplayer sample_02 = FpsDisplayer.Create(30);
+            FpsDisplayer sample_03 = FpsDisplayer.Create(75, DisplayPosition.UpperRight);
         }
     }
 }

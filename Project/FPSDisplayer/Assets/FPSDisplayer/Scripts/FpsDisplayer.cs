@@ -54,8 +54,20 @@
             return script;
         }
 
+        public static bool Destroy()
+        {
+            FpsDisplayer script = FindObjectOfType<FpsDisplayer>();
+            if (script == null)
+            {
+                return false;
+            }
+            Destroy(script.gameObject);
+            return true;
+        }
+
         private void Start()
         {
+            InitializeCanvasScalerData();
             InitializeWithData();
         }
 
@@ -91,6 +103,15 @@
             SetFontSize(fontSize);
             SetTextColor(fpsTextColor);
             SetDisplayPosition(displayPosition);
+        }
+
+        private void InitializeCanvasScalerData()
+        {
+            CanvasScaler canvasScaler = GetComponent<CanvasScaler>();
+            canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
+            canvasScaler.matchWidthOrHeight = 0;
+            canvasScaler.referencePixelsPerUnit = 100;
         }
 
         private int GetFramePerSecond()
