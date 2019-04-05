@@ -8,16 +8,17 @@
     {
         // private static readonly variables
         private static readonly string Path = "FPSDisplayer";
+        private static readonly int MaxSortingOrder = 32767;
 
         // public variables to edit at editor
         public Color fpsTextColor = Color.green;
 
         // Cached Components
-        public Text fpsText;
+        private Text fpsText;
 
         // private variables
-        private int fontSize = 30;
-        private DisplayPosition displayPosition = DisplayPosition.UpperLeft;
+        //private int fontSize = 30;
+        //private DisplayPosition displayPosition = DisplayPosition.UpperLeft;
 
         // private enums
         private enum ChildIndex
@@ -25,11 +26,15 @@
             FpsText
         };
 
-        public static FpsDisplayer Create(int fontSize = 30, DisplayPosition position = DisplayPosition.UpperLeft)
+        public static FpsDisplayer GetOrCreate(int fontSize = 30, DisplayPosition position = DisplayPosition.UpperLeft)
         {
             FpsDisplayer script = FindObjectOfType<FpsDisplayer>();
             if (script != null)
             {
+                script.SetFontSize(fontSize);
+                script.SetDisplayPosition(position);
+
+                Debug.Log("FpsDisplayer already exists. Return the address of it.");
                 return script;
             }
 
@@ -48,8 +53,8 @@
                 script = prefab.AddComponent<FpsDisplayer>();
             }
 
-            script.fontSize = fontSize;
-            script.displayPosition = position;
+            script.SetFontSize(fontSize);
+            script.SetDisplayPosition(position);
 
             return script;
         }
@@ -65,10 +70,10 @@
             return true;
         }
 
-        private void Start()
+        private void Awake()
         {
-            InitializeCanvasScalerData();
-            InitializeWithData();
+            InitializeCanvas();
+            Initialize();
         }
 
         private void Update()
@@ -96,17 +101,17 @@
             rectTransform.pivot = GetVector2WithDisplayPosition(displayPosition);
         }
 
-        private void InitializeWithData()
+        private void Initialize()
         {
             fpsText = transform.GetChild((int)ChildIndex.FpsText).GetComponent<Text>();
-
-            SetFontSize(fontSize);
             SetTextColor(fpsTextColor);
-            SetDisplayPosition(displayPosition);
         }
 
-        private void InitializeCanvasScalerData()
+        private void InitializeCanvas()
         {
+            Canvas canvas = GetComponent<Canvas>();
+            canvas.sortingOrder = MaxSortingOrder;
+
             CanvasScaler canvasScaler = GetComponent<CanvasScaler>();
             canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
