@@ -11,6 +11,12 @@ Tool to display fps at GUI in Unity Engine.
 
 
 ## How to use
+
+### Setup
+```
+Download (FPSDisplayer_v1.0.unitypackage) and import to your Unity project.
+```
+
 ### Create
 ```C#
 public FpsDisplayer CreateDisplayer() 
