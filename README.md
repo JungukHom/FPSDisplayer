@@ -20,14 +20,17 @@ public FpsDisplayer CreateDisplayer()
     FpsDisplayer displayer = FpsDisplayer.GetOrCreate(75, DisplayPosition.UpperRight);
 }
 ```
-Get or Create(instantiate) FpsDisplayer.
+ - Get or Create(instantiate) FpsDisplayer.
+
+</br>
+
 ```C#
 public void GetOrCreate() {}
 public void GetOrCreate(int fontSize) {}
 public void GetOrCreate(int fontSize, DisplayPosition displayPosition) {}
 ```
-Create() method is implemented like this.</br>
-Their default value is 30 and DisplayerPosition.UpperLeft.
+ - Create() method is implemented like this.</br>
+ - Their default value is 30 and DisplayerPosition.UpperLeft.
 
 </br>
 
