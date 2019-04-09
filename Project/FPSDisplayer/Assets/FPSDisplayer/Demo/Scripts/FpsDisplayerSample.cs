@@ -20,8 +20,6 @@
             //FpsDisplayer sample_01 = FpsDisplayer.GetOrCreate();
             //FpsDisplayer sample_02 = FpsDisplayer.GetOrCreate(30);
             FpsDisplayer sample_03 = FpsDisplayer.GetOrCreate(75, DisplayPosition.UpperRight);
-
-            // FpsDisplayer.Destroy();
         }
 
         public void ModifyFpsDisplayer()
@@ -40,6 +38,11 @@
 
             // DisplayPosition
             fpsDisplayer.SetDisplayPosition(DisplayPosition.MiddleCenter);
+        }
+
+        public void DestroyFpsDisplayer()
+        {
+            FpsDisplayer.Destroy();
         }
     }
 }
