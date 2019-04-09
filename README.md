@@ -44,7 +44,7 @@ public void ModifyFpsDisplayer()
     fpsDisplayer.SetDisplayPosition(DisplayPosition.MiddleCenter);
 }
 ```
-Modify instantiated or created FpsDisplayer's text value.
+ - Modify instantiated or created FpsDisplayer's text value.
 
 </br>
 
@@ -55,7 +55,7 @@ public void DestroyFpsDisplayer()
     FpsDisplayer.Destroy();
 }
 ```
-Destroy FpsDisplayer gameObject.
+ - Destroy FpsDisplayer gameObject.
 
 
 
