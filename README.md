@@ -62,19 +62,3 @@ public void DestroyFpsDisplayer()
 }
 ```
 > Destroy FpsDisplayer gameObject.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
