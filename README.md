@@ -2,7 +2,7 @@
 Tool to display fps at GUI in Unity Engine.
 
 <details>
-    <summary><h3>Click to see details<h3></summary>
+    <h3><summary>Click to see details</summary><h3>
 
     </br>
 
