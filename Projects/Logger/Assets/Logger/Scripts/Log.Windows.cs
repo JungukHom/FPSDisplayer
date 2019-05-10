@@ -17,20 +17,7 @@
 
     public partial class Log
     {
-        // class instance
-        private static Log _instance = null;
-
-        // class instructor
-        private Log() { }
-
-        // class creator
-        public static Log GetOrCreate()
-        {
-            return _instance ?? (_instance = new Log());
-        }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
+#if UNITY_STANDALONE
         // private static readonly variables
         private static readonly string DefaultLogFileName = $"{Application.productName}_Log";
         private static readonly string Extender = ".txt";
@@ -138,4 +125,5 @@
             return File.Exists(FullPath);
         }
     }
+#endif
 }
